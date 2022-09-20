@@ -1,0 +1,24 @@
+dataset:
+  data_dir: ./dataset/data #/content/HASOC-Dravidian/dataset/data
+  file_name: tamil_codemix_offensive_
+model:
+  model_loc: /content/drive/MyDrive/HASOC/transformer
+  model: distilbert-base-multilingual-cased #bert-base-multilingual-uncased #google/muril-base-cased
+  ckpt:
+hyperparameters:
+  lr: 1e-5
+  epochs: 30
+  batch_size: 32
+  use_weights: True
+  hidden_layers: 768
+  dropout: 0.5
+  max_len: 256
+inference:
+  mode: train
+  batch_size: 1
+ensemble:
+  mode: dev
+  models:
+  - muril-base-cased
+  - bert-base-multilingual-uncased
+  - distilbert-base-multilingual-cased
